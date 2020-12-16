@@ -1,0 +1,166 @@
+<!doctype html public "-//w3c//dtd html 3.2//en">
+
+<html>
+
+<head>
+<title>Beteljuices Zambretti Algorithm based Forecaster</title>
+<meta name="Author" content="beteljuice">
+
+  <script type="text/javascript" src="betel_cast.js"></script>
+
+</head>
+
+<body bgcolor="#ffffff" text="#000000" link="#ff0000" vlink="#0000ff" alink="#ff0000">
+
+<script language="javascript">
+function babblecrap() {
+
+	baro = document.bert.baro.value *1;
+	month = document.bert.month.value;
+	wind = document.bert.wind.value;
+	trend = document.bert.trend.value;
+	where = document.bert.hemisphere.value;
+	high = document.bert.range_high.value *1;
+	low = document.bert.range_low.value *1;
+
+	johnny = document.getElementById('forecast');
+	johnny.innerHTML= betel_cast(baro, month, wind, trend, where, high, low)[0] ;
+}	// END function babblecrap()
+
+</script>
+
+<!-- container for form -->
+<table width="95%" align="center"  style="border-style: solid; border-width: 1px;">
+<tr><td>
+
+<table border="0" cellspacing="0" cellpadding="2" align="center" width="95%"> 
+	<tr> 
+		<td height="45" >
+			<b><font size="4" face="Verdana, Arial, Helvetica, sans-serif">Beteljuices Zambretti Algorhithm based Forecaster - v1.0</font></b>
+		</td> 
+	</tr> 
+</table>
+
+
+
+<form name="bert" onSubmit="babblecrap(); return false"> 
+<table border="0" cellspacing="1" cellpadding="5" align="center" width="100%"> 
+	<tr bgcolor="#BCBCDE"> 
+		<td colspan="2">
+			<b><font size="4" face="Verdana, Arial, Helvetica, sans-serif">Enter Data</font></b>
+		</td> 
+	</tr> 
+	<tr bgcolor="#EFEFEF"> 
+		<td width="30%" bgcolor="#EFEFEF">
+			<font size="2" face="Verdana, Arial, Helvetica, sans-serif">Environment:</font>
+		</td>
+		<td>				
+ 			<font size="2" face="Verdana, Arial, Helvetica, sans-serif">Hemisphere: <select name="hemisphere" size="1">
+			<option selected value=1>North
+			<option value=2>South
+			</select>
+			&nbsp;&nbsp;Local 'Weather Range':&nbsp;&nbsp;
+			Low:<input type="text" name="range_low" size="4" value=950.0>
+			&nbsp;High:<input type="text" name="range_high" size="4" value=1050.0>
+ 		</td> 
+	</tr> 
+	<tr bgcolor="#EFEFEF"> 
+		<td width="30%" bgcolor="#EFEFEF">
+			<font size="2" face="Verdana, Arial, Helvetica, sans-serif">Current Variables:</font>
+		</td> 
+		<td width="70%"> 
+			<font size="2" face="Verdana, Arial, Helvetica, sans-serif">Wind conditions:</font>
+			<select name="wind" size="1"> 
+			<option selected value = "calm">Calm
+			<option value = "N">N
+			<option value = "NNE">NNE
+			<option value = "NE">NE
+			<option value = "ENE">ENE
+			<option value = "E">E
+			<option value = "ESE">ESE
+			<option value = "SE">SE
+			<option value = "SSE">SSE
+			<option value = "S">S
+			<option value = "SSW">SSW
+			<option value = "SW">SW
+			<option value = "WSW">WSW
+			<option value = "W">W
+			<option value = "WNW">WNW
+			<option value = "NW">NW
+			<option value = "NNW">NNW
+			</select> 
+	&nbsp;&nbsp;Month: <select name="month" size="1">
+			<option value = 1>January
+			<option value = 2>February
+			<option value = 3>March
+			<option value = 4>April
+			<option value = 5>May
+			<option value = 6>June
+			<option value = 7>July
+			<option value = 8>August
+			<option value = 9>September
+			<option value = 10>October
+			<option value = 11>November
+			<option value = 12>December
+			</select>
+		</td> 
+	</tr> 
+	<tr bgcolor="#EFEFEF"> 
+		<td width="30%" bgcolor="#EFEFEF">
+			<font size="2" face="Verdana, Arial, Helvetica, sans-serif">Baro: <br />(Relative / <b>S</b>ea <b>L</b>evel <b>A</b>djusted)</font>
+		</td> 
+		<td width="70%"> 
+			<font size="2" face="Verdana, Arial, Helvetica, sans-serif"> (hPa / mb):</font> <input type="text" name="baro" size="4"> <font size="2" face="Verdana, Arial, Helvetica, sans-serif">&nbsp;&nbsp; Trend:</font>
+			<select name="trend" size="1"> 
+			<option selected value = 0>Steady
+			<option value = 1>Rising
+			<option value = 2>Falling
+			</select> 
+		</td> 
+	</tr> 
+	<tr bgcolor="#EFEFEF"> 
+		<td width="30%" bgcolor="#EFEFEF">&nbsp;</td> 
+		<td width="70%"> 
+			<input type="submit" value="Give Me The Forecast !" > 
+		</td> 
+	</tr> 
+</table> 
+</form> 
+
+<table border="0" cellspacing="1" cellpadding="5" align="center" width="100%"> 
+	<tr bgcolor="#BCBCDE"> 
+		<td >
+			<font size="4" face="Verdana, Arial, Helvetica, sans-serif"><b>12 Hour Forecast:</b> <span id="forecast">Your forecast will appear here</span></font></font>
+		</td> 
+	</tr> 
+	<tr bgcolor="#EFEFEF"> 
+		<td width="30%" bgcolor="#EFEFEF"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Best done at 09:00 local solar time</font>
+		</td>
+	</tr> 
+</table> 
+
+</td>
+</tr>
+</table> <!-- END form container -->
+
+<br />
+
+<!-- blurb container -->
+<table width="95%" align="center"  style="border-style: solid; border-width: 1px;">
+<tr><td>
+<table border="0" cellspacing="0" cellpadding="2" align="center" width="95%"> 
+	<tr> 
+		<td>
+			<font size="3" face="Verdana, Arial, Helvetica, sans-serif">This page is a simple input / output form for a Javascript version of the the 1915 Negretti and Zambra (Zambretti) weather forecaster.<br /><br />The original was designed for the Northern Hemisphere and UK 'Weather Range'. ie. The nearer the Poles the greater the spread between lower and upper barometer levels and large 'trends' are needed for weather conditions change. Conversely, the nearer the Equator the smaller the 'spread' and smaller 'trends' for change.<br /><br />Hopefully I have correctly re-written the algorithm to allow for any location, and I have also increased 'wind direction' to 16 points to make it compatable with most wx kit.<br /><br />A forecast at approx. 09:00 local Solar Time is allegedly better than 90% accurate ! - even though it takes no account of rate of barometer change, wind speed or temperature.<br /><br />This code is free for all, including redistribution, as long as NO CHARGE is ever made for it's use or output.<br /><br /><br /><i>beteljuice - June 2008</i>
+
+</font>
+		</td>
+	</tr>
+</table>
+
+</td></td></table> <!-- END blurb container -->
+<a href="zambretti.zip">Download files</a>
+
+</body>
+
+</html>
